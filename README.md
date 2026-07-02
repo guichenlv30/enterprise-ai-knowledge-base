@@ -253,3 +253,7 @@ docker compose up --build
 9. 用普通用户新建私有知识库，上传文档后提问；说明数据写入 `data/users/2/private.json` 和 `storage/users/2/uploads`。
 10. 用普通用户新建 Prompt，再删除该 Prompt；说明用户只能删除自己创建的知识库和 Prompt。
 11. 回到管理员，进入“质量反馈”查看低质量回答闭环；进入“系统”查看部门、用户、模型配置和 LLM 调用日志。
+
+## 许可证
+
+本项目使用 MIT License 开源，详见 [LICENSE](LICENSE)。
