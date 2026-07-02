@@ -1,0 +1,14 @@
+node_modules/
+dist-web/
+dist-server/
+.env
+data/*
+!data/.gitkeep
+storage/*
+!storage/uploads/
+storage/uploads/*
+!storage/uploads/.gitkeep
+logs/
+npm-debug.log*
+*.tsbuildinfo
+vite.config.js

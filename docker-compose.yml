@@ -1,0 +1,36 @@
+services:
+  aikb:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      JWT_SECRET: change-me-in-production
+      APP_ENCRYPTION_SECRET: ${APP_ENCRYPTION_SECRET:-change-me-to-a-long-random-secret}
+      DATA_FILE: data/app.json
+      UPLOAD_DIR: storage/uploads
+      DB_DRIVER: ${DB_DRIVER:-json}
+      MYSQL_HOST: ${MYSQL_HOST:-mysql}
+      MYSQL_PORT: ${MYSQL_PORT:-3306}
+      MYSQL_USER: ${MYSQL_USER:-root}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-enterprise_ai_kb}
+      MYSQL_CONNECTION_LIMIT: ${MYSQL_CONNECTION_LIMIT:-10}
+      REDIS_ENABLED: ${REDIS_ENABLED:-false}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      REDIS_KEY_PREFIX: ${REDIS_KEY_PREFIX:-aikb:}
+      REDIS_CACHE_TTL_SECONDS: ${REDIS_CACHE_TTL_SECONDS:-60}
+      LLM_PROVIDER: ${LLM_PROVIDER:-deepseek}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_CHAT_MODEL: ${DEEPSEEK_CHAT_MODEL:-deepseek-v4-flash}
+      DEEPSEEK_REASONING_MODEL: ${DEEPSEEK_REASONING_MODEL:-deepseek-v4-pro}
+      DEEPSEEK_THINKING: ${DEEPSEEK_THINKING:-disabled}
+      DEEPSEEK_REASONING_EFFORT: ${DEEPSEEK_REASONING_EFFORT:-high}
+      DEEPSEEK_MAX_TOKENS: ${DEEPSEEK_MAX_TOKENS:-4096}
+      DEEPSEEK_TIMEOUT_MS: ${DEEPSEEK_TIMEOUT_MS:-900000}
+      DEEPSEEK_STREAM_INCLUDE_USAGE: ${DEEPSEEK_STREAM_INCLUDE_USAGE:-true}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-local-hashing}
+    volumes:
+      - ./data:/app/data
+      - ./storage:/app/storage

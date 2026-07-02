@@ -1,0 +1,48 @@
+{
+  "name": "enterprise-ai-knowledge-base",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,green \"npm:server:dev\" \"npm:web:dev\"",
+    "server:dev": "tsx watch src/server/index.ts",
+    "web:dev": "vite --host 127.0.0.1 --port 5173",
+    "start": "tsx src/server/index.ts",
+    "build": "vue-tsc --noEmit && vite build && tsc -p tsconfig.server.json",
+    "typecheck": "vue-tsc --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "preview": "npm run build && node dist-server/index.js"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "element-plus": "^2.11.9",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.11.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.22.5",
+    "pdf-parse": "^1.1.1",
+    "pinia": "^3.0.4",
+    "redis": "^6.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "uuid": "^13.0.0",
+    "vite": "^7.2.7",
+    "vue": "^3.5.25",
+    "vue-tsc": "^3.1.8",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.10.4"
+  }
+}
